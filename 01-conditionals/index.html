@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditionals</title>
+</head>
+
+<body>
+    <script>
+
+        console.log('***** Conditionals *****');
+        /*JS assignment:
+        1. Write a JavaScript program to display the difference between a given number and 20, if the number is greater than 20 display double the absolute difference
+        Example1: num = 3; output => 20 - 3 = 17
+        Example2: num = 30; output => (30 - 20) * 2 = 20*/
+
+        let number = 15;
+        if (number <= 20) {
+            console.log(`The difference is ${20 - number}`);
+        }
+        else if (number > 20) {
+            console.log(`The double difference is ${(number - 20) * 2}`);
+        }
+        else {
+            console.log("Invalid entry. Please only enter numbers")
+        }
+
+        // ******************************
+
+        /*JS assignment:
+        2. Write a JavaScript program that takes 3 integers from a user, multiplies all these numbers, and displays the sign of the product.
+        Example-1: num1 = 3, num2 = 4, num3 = 5; output => solution:"3*4*5=60" sign"+"
+        Example-2: num1 = 5, num2 = -6, num3 = 2; output => solution:"5*-6*2=-60" sign"-" */
+
+        let num1 = 1;
+        let num2 = -3;
+        let num3 = 3;
+        let mult = num1 * num2 * num3;
+        if (mult < 0) {
+            console.log(`The multiplication is ${mult} being the sign "-"`);
+        }
+        else if (mult > 0) {
+            console.log(`The multiplication is ${mult} being the sign "+"`);
+        }
+        else if (mult = 0) {
+            console.log("The multiplication is 0")
+        }
+        else {
+            console.log("Invalid entry. Please enter only integer numbers")
+        }
+
+        // If to declare the variables it uses a +prompt asking to user introduce the integer numbers and the user doesnt give a number, it will show in console: NaN (IN THE END IS A NUMBER)
+
+        /*
+        JS assignment:
+        3. Write a JavaScript program to check whether a given integer is in the range 50 to 100.
+        Example1: num = 25; output => "25 is not in the range of 50 to 100"
+        Example2: num = 75; output => "75 is in the range of 50 to 100" */
+
+        let num = -20;
+        if (num >= 50 && num <= 100) {
+            console.log(`${num} is in the range of 50 to 100`);
+        }
+        else if (num < 50 || num > 100) {
+            console.log(`${num} is not in the range of 50 to 100`);
+        }
+        else {
+            console.log("Enter valid values");
+        }
+
+        // ******************************
+
+        /*
+        JS assignment:
+        4. Write a JavaScript program to find a value that is nearest to 100 from two different given integer
+        Example: num-1 = -25, num-2=275 ; output => "num-1 is closer to the 100" */
+
+        let num4 = -50;
+        let num5 = 350;
+        if (Math.abs(num4 - 100) < Math.abs(num5 - 100)) {
+            console.log(`${num4} is closer to the 100`);
+        }
+        else {
+            console.log(`${num5} is closer to the 100`);
+        }
+
+        //Another way to do it
+        let num8 = -50;
+        let num9 = 350;
+        const difference1 = num8 <= 100 ? 100 - num8 : num8 - 100;
+        const difference2 = num9 <= 100 ? 100 - num9 : num9 - 100;
+
+        // let num8 = -50;
+        // let num9 = 350;
+        // let difference1
+        // let difference2;
+
+        // if (num8 <= 100) {
+        //     difference1 = 100 - num8;
+        // }
+        // else {
+        //     difference1 = num8 - 100;
+        // }
+        // if (num9 <= 100) {
+        //     difference2 = 100 - num9;
+        // }
+        // else {
+        //     difference2 = num9 - 100;
+        // }
+
+        if (difference1 > difference2) {
+            console.log(num9 + 'is closer to the 100');
+        }
+        else if (difference1 < difference2) {
+            console.log(num8 + 'is closer to the 100');
+        }
+        else if (difference1 == difference2) {
+            console.log(num8 + 'and' + num2 + 'have the same distance to the 100');
+        }
+        else {
+            console.log("Make sure you entered valid values");
+        }
+     
+        // ******************************
+
+        /*
+        JS assignment:
+        5. Write a JavaScript program that asks the user to enter a day, check this day, and display whether a weekday or not.
+        Example-1: day = "Wednesday"; output => "Wednesday is a weekday"
+        Example-2: day = "Saturday"; output => "Saturday is not a weekday"*/
+
+        let day = prompt("Enter a day");
+        if (!day.endsWith("day")) {
+            console.log(`Inavlid entry`);
+        }
+        else if (day.toLowerCase() !== "saturday" && day.toLowerCase() !== "sunday") {
+            console.log(`${day} is a weekday`);
+        }
+        else {
+            console.log(`${day} is not a weekday`);
+        }
+
+        //Another way to do it
+
+        switch (day.toLowerCase()) {
+            case 'monday':
+            case 'tuesday':
+            case 'wednesday':
+            case 'thursday':
+            case 'friday':
+                console.log(day + ' is a weekday');
+                break;
+            case 'saturday':
+            case 'sunday':
+                console.log(day + ' is not a weekday');
+                break;
+            default:
+                console.log(day + ' is not a day name');
+                break;
+        }
+
+        // ******************************
+
+
+        /*
+        JS assignment:
+        6. Write a basic Calculator with JavaScript. Ask the user to enter 2 numbers and an operand (+,-,*,/). Execute the desired operation and display the result.
+        Example1: num1 = 3, num2 = 4, operand = *; output => 3 * 4 = 12
+        Example2: num1 = 8, num2 = 2, operand = /; output => 8 / 2 = 4
+        Example3: num1 = 32, num2 = 14, operand = -; output => 32 - 14 = 18
+        Example4: num1 = 18, num2 = 41, operand = +; output => 18 + 41 = 59*/
+
+        let num6 = +prompt("Enter a number");
+        let num7 = +prompt("Enter another number");
+        let operand = prompt("Enter an operand");
+        if (operand != "+" && operand != "-" && operand != "*" && operand != "/")
+            console.log("Invalid entry");
+        else if (operand == "+") {
+            console.log(`The sum is ${(num6 + num7)}`);
+        }
+        else if (operand == "-") {
+            console.log(`The substraction is ${(num6 - num7)}`);
+        }
+        else if (operand == "*") {
+            console.log(`The multiplication is ${(num6 * num7)}`);
+        }
+        else {
+            console.log(`The division is ${(num6 / num7)}`);
+        }
+
+        //Another way to do it
+        //If you have to compare one value with differenets things is good to use the conditional switch
+        let num10 = 8;
+        let num11 = 2;
+        const operand2 = '+'
+        switch (operand2) {
+            case '+':
+                console.log(`${num10} + ${num11} = ${num10 + num11}`);
+                break;
+            case '-':
+                console.log(`${num10} - ${num11} = ${num10 - num11}`);
+                break;
+            case '+':
+                console.log(`${num10} + ${num11} = ${num10 + num11}`);
+                break;
+            case '-':
+                console.log(`${num10} - ${num11} = ${num10 - num11}`);
+                break;
+        }
+
+        // ******************************
+
+    </script>
+</body>
+
+</html>
